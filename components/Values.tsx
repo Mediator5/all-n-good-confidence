@@ -35,8 +35,7 @@ const values = [
 
 function ValueIcon({ icon }: { icon: (typeof values)[number]["icon"] }) {
   const common = {
-    width: 56,
-    height: 56,
+    className: "h-full w-full",
     viewBox: "0 0 56 56",
     fill: "none",
     stroke: "currentColor",
@@ -100,17 +99,17 @@ export default function Values() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-2 gap-x-6 gap-y-12 md:grid-cols-3">
+        <div className="mt-14 grid grid-cols-2 gap-x-6 gap-y-16 md:grid-cols-3">
           {values.map((v, i) => (
-            <Reveal key={v.label} delay={i * 70} className="flex flex-col items-center">
-              <div className="text-cream/30 transition-transform duration-300 hover:scale-110 hover:text-blue-light">
+            <Reveal key={v.label} delay={i * 70} className="group flex flex-col items-center">
+              <div className="flex h-24 w-24 items-center justify-center text-cream/25 transition-all duration-300 ease-out group-hover:scale-125 group-hover:text-glow group-hover:drop-shadow-[0_0_16px_rgba(233,255,92,0.7)] sm:h-28 sm:w-28 md:h-32 md:w-32">
                 <ValueIcon icon={v.icon} />
               </div>
-              <div className="mt-8 w-full border-t-2 border-blue pt-3 text-center">
-                <span className="block font-heading text-base font-bold text-cream sm:text-lg">
+              <div className="mt-6 w-full border-t-2 border-blue pt-3 text-center">
+                <span className="block font-heading text-base font-bold text-cream transition-colors duration-300 group-hover:text-glow sm:text-lg">
                   {v.label}
                 </span>
-                <span className="mt-1 block font-body text-sm text-cream/50">
+                <span className="mt-2 block min-h-[2.5rem] font-heading text-sm font-bold uppercase leading-snug text-glow opacity-0 transition-all duration-300 ease-out [text-shadow:0_0_14px_rgba(233,255,92,0.9)] group-hover:translate-y-0 group-hover:opacity-100 sm:text-base translate-y-2">
                   {v.tagline}
                 </span>
               </div>

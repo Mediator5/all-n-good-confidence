@@ -21,6 +21,7 @@ const config: Config = {
           DEFAULT: "#1E4D8C",
           dark: "#143869",
         },
+        glow: "#E9FF5C",
       },
       fontFamily: {
         heading: ["var(--font-poppins)"],

@@ -4,39 +4,40 @@ import Reveal from "./Reveal";
 
 const projects = [
   {
-    name: "Project One",
-    tags: "Branding, Strategy, Web",
-    image:
-      "https://images.unsplash.com/photo-1768893888828-52288984228c?auto=format&fit=crop&w=1200&q=75",
-    alt: "City skyline silhouette at sunset",
-  },
-  {
-    name: "Project Two",
-    tags: "Social, Campaign",
-    image:
-      "https://images.unsplash.com/photo-1759215524472-1b0686fdbd87?auto=format&fit=crop&w=1200&q=75",
-    alt: "Hands holding a phone displaying a social feed",
-  },
-  {
-    name: "Project Three",
+    name: "Aura Bloom",
     tags: "Branding",
-    image:
-      "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200&q=75",
-    alt: "Colorful confetti against a teal background",
+    image: "/aura_bloom_hero.png",
+    alt: "Aura Bloom brand work",
   },
   {
-    name: "Project Four",
-    tags: "Website",
-    image:
-      "https://images.unsplash.com/photo-1754548930550-be9fa88874f4?auto=format&fit=crop&w=1200&q=75",
-    alt: "Multi-monitor coding workspace",
+    name: "Byte Bridge",
+    tags: "Branding",
+    image: "/byte_bridge_hero.png",
+    alt: "Byte Bridge brand work",
   },
   {
-    name: "Project Five",
-    tags: "Strategy, Campaign",
-    image:
-      "https://images.unsplash.com/photo-1758691736836-0413b066787a?auto=format&fit=crop&w=1200&q=75&crop=entropy",
-    alt: "Creative team brainstorming together",
+    name: "Eco Haven",
+    tags: "Branding",
+    image: "/eco_haven_hero.png",
+    alt: "Eco Haven brand work",
+  },
+  {
+    name: "Melodia",
+    tags: "Branding",
+    image: "/melodia_hero.png",
+    alt: "Melodia brand work",
+  },
+  {
+    name: "Wanderlust",
+    tags: "Branding",
+    image: "/wanderlust_hero.png",
+    alt: "Wanderlust brand work",
+  },
+  {
+    name: "Zenith",
+    tags: "Branding",
+    image: "/zenith_hero.png",
+    alt: "Zenith brand work",
   },
 ];
 
@@ -91,14 +92,8 @@ export default function Work() {
         </Reveal>
 
         <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
-          <Reveal delay={0} className="md:col-span-2">
-            <ProjectCard {...projects[0]} />
-          </Reveal>
-          <Reveal delay={80}>
-            <ProjectCard {...projects[1]} />
-          </Reveal>
-          {projects.slice(2).map((p, i) => (
-            <Reveal key={p.name} delay={160 + i * 80}>
+          {projects.map((p, i) => (
+            <Reveal key={p.name} delay={i * 80}>
               <ProjectCard {...p} />
             </Reveal>
           ))}

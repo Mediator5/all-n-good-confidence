@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Container from "./Container";
 import PillButton from "./PillButton";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Services", href: "#services" },
@@ -17,7 +18,8 @@ export default function Header() {
           href="#top"
           className="font-heading text-xl font-extrabold text-blue tracking-tight"
         >
-          All N&apos; Good<span className="text-brown-dark">.</span>
+
+          <Image src="/logo.png" alt="All N' Good" width={140} height={40} />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">

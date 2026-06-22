@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Container from "./Container";
 import Arc from "./Arc";
-import Parallax from "./Parallax";
 
 const taglineItems = ["Strategy", "Branding", "Website", "Social", "Campaign"];
 
@@ -32,25 +31,20 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero-fade-up-delay relative aspect-square">
+        <div className="hero-fade-up-delay relative mx-auto aspect-square w-[85%]">
           <div className="float-slow absolute -right-6 -top-6 z-10 h-40 w-40 rounded-full bg-blue/10" />
           <div
             className="float-slow absolute bottom-0 left-4 z-10 h-24 w-24 rounded-full bg-brown-light/40"
             style={{ animationDelay: "1.5s" }}
           />
-          <Parallax
-            speed={0.15}
-            className="relative h-full w-full rounded-[2rem] border-2 border-brown-dark/10 shadow-lg"
-          >
-            <Image
-              src="https://images.unsplash.com/photo-1758691736836-0413b066787a?auto=format&fit=crop&w=1200&q=75"
-              alt="Creative team brainstorming with sticky notes"
-              fill
-              priority
-              className="object-cover"
-              sizes="(min-width: 768px) 40vw, 90vw"
-            />
-          </Parallax>
+          <Image
+            src="/hero.png"
+            alt="All N' Good Confidence hero"
+            fill
+            priority
+            className="object-cover"
+            sizes="(min-width: 768px) 34vw, 75vw"
+          />
         </div>
       </Container>
     </section>
