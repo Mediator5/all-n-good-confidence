@@ -1,6 +1,10 @@
+"use client";
+
+import { useState } from "react";
 import Container from "./Container";
 import PillButton from "./PillButton";
 import Reveal from "./Reveal";
+import CareerModal from "./CareerModal";
 
 const roles = [
   {
@@ -27,48 +31,61 @@ const roles = [
 ];
 
 export default function Careers() {
+  const [activeRole, setActiveRole] = useState<string | null>(null);
+
   return (
-    <section id="careers" className="bg-cream py-16 md:py-24">
-      <Container>
-        <Reveal>
-          <h2 className="section-heading text-3xl text-brown-dark sm:text-4xl">
-            Come do work you&apos;d actually show people.
-          </h2>
-          <PillButton href="#open-roles" variant="filled" className="mt-6">
-            See open roles &#8595;
-          </PillButton>
-        </Reveal>
-      </Container>
+    <>
+      <section id="careers" className="bg-cream py-16 md:py-24">
+        <Container>
+          <Reveal>
+            <h2 className="section-heading text-3xl text-brown-dark sm:text-4xl">
+              Come do work you&apos;d actually show people.
+            </h2>
+            <PillButton href="#open-roles" variant="filled" className="mt-6">
+              See open roles &#8595;
+            </PillButton>
+          </Reveal>
+        </Container>
 
-      <Container id="open-roles" className="mt-16">
-        <Reveal>
-          <h3 className="section-heading text-2xl text-brown-dark">
-            Open Roles
-          </h3>
-        </Reveal>
+        <Container id="open-roles" className="mt-16">
+          <Reveal>
+            <h3 className="section-heading text-2xl text-brown-dark">
+              Open Roles
+            </h3>
+          </Reveal>
 
-        <div className="mt-6 border-t-2 border-blue">
-          {roles.map((r, i) => (
-            <Reveal key={r.title} delay={i * 80}>
-              <div className="group grid grid-cols-1 gap-3 border-b-2 border-blue py-7 transition-colors duration-200 md:grid-cols-[220px_140px_1fr_36px] md:items-start">
-                <h4 className="font-heading text-lg font-extrabold uppercase tracking-tight text-blue">
-                  {r.title}
-                </h4>
-                <span className="font-body text-sm text-brown-dark/70">
-                  {r.location}
-                </span>
-                <p className="font-body text-brown-dark">
-                  {r.blurb}
-                  {r.note && <strong className="font-semibold"> {r.note}</strong>}
-                </p>
-                <span className="hidden font-heading text-2xl text-blue transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1 md:block">
-                  &#8599;
-                </span>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </Container>
-    </section>
+          <div className="mt-6 border-t-2 border-blue">
+            {roles.map((r, i) => (
+              <Reveal key={r.title} delay={i * 80}>
+                <button
+                  onClick={() => setActiveRole(r.title)}
+                  className="group w-full border-b-2 border-blue py-7 text-left transition-colors duration-200 hover:bg-blue/5"
+                >
+                  <div className="grid grid-cols-1 gap-3 md:grid-cols-[220px_140px_1fr_36px] md:items-start">
+                    <h4 className="font-heading text-lg font-extrabold uppercase tracking-tight text-blue">
+                      {r.title}
+                    </h4>
+                    <span className="font-body text-sm text-brown-dark/70">
+                      {r.location}
+                    </span>
+                    <p className="font-body text-brown-dark">
+                      {r.blurb}
+                      {r.note && (
+                        <strong className="font-semibold"> {r.note}</strong>
+                      )}
+                    </p>
+                    <span className="hidden font-heading text-2xl text-blue transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1 md:block">
+                      &#8599;
+                    </span>
+                  </div>
+                </button>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <CareerModal role={activeRole} onClose={() => setActiveRole(null)} />
+    </>
   );
 }
