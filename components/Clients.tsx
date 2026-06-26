@@ -59,22 +59,6 @@ export default function Clients() {
                       Experiences
                     </span>
                   </div>
-                ) : (
-                  <div className="flex h-16 w-full flex-col items-center justify-center gap-1">
-                    <span
-                      className="font-heading text-xs font-black uppercase tracking-[0.18em]"
-                      style={{ color: "#C9A441" }}
-                    >
-                      Mino &amp; Tony
-                    </span>
-                    <div className="h-px w-8" style={{ background: "#C9A441" }} />
-                    <span
-                      className="font-heading text-[10px] font-semibold uppercase tracking-[0.22em]"
-                      style={{ color: "#C9A441BB" }}
-                    >
-                      Experiences
-                    </span>
-                  </div>
                 )}
               </div>
             </Reveal>
